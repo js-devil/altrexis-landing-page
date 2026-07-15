@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALTREXIS - Digital Enterprise</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lottie Animation Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+  <script src="js/lottie-hover.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.17/build/spline-viewer.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.17/build/spline-viewer.js"></script>
+  <script src="js/faq-accordion.js" defer></script>
+</head>
+
+<body>
+  <div class="site-wrapper">
+    <!-- Header will be inserted here -->
+    <div id="header">
+      <header class="site-header">
+        <nav class="main-nav">
+          <div class="logo logo-svg">
+            <a href="index.html">
+              <!-- SVG logo for ALTREXIS -->
+              <img class="theme-logo" src="assets/icons/alterix icon white.svg" alt="ALTREXIS Logo">
+            </a>
+          </div>
+
+          <div class="nav-center-text">ALTREXIS</div>
+
+          <div class="nav-actions">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle-switch" id="themeToggleBtn" aria-label="Toggle Theme">
+              <span class="theme-switch-knob">
+                <svg class="theme-icon dark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="theme-icon light-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+              </span>
+            </button>
+            <a href="mailto:hello@altrexis.com" class="contact-btn">Contact Us</a>
+            <div class="hamburger" id="hamburger-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </nav>
+        <div class="overlay-menu" id="overlay-menu">
+          <button class="close-overlay" id="close-overlay" aria-label="Close menu">&times;</button>
+          <ul class="overlay-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+            <li><a href="#team-carousel-section">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <!-- Dark Mode Hero Text (Unwrapped for proper flex layout) -->
+        <h1 class="hero-title fade-in">We craft scalable solutions that fuel the growth of modern
+          businesses.</h1>
+
+        <!-- Dark Mode isometric stack -->
+        <div id="hero-isometric-stack" class="isometric-img-stack fade-in">
+          <img src="assets/images/add-box.svg" alt="Isometric Block 1" class="iso-block-img" />
+          <img src="assets/images/bottom-panel-close-2.svg" alt="Isometric Block 2" class="iso-block-img" />
+          <img src="assets/images/capture.svg" alt="Isometric Block 3" class="iso-block-img" />
+        </div>
+      </div>
+      <div class="purple-overlay fade-in">
+        <img src="assets/images/heroBottomElement.svg" alt="Purple Overlay" />
+      </div>
+    </section>
+
+    <!--  About us Section-->
+    <section id="about" class="about-section" style="position:relative; overflow:hidden;">
+      <canvas id="aboutGridCanvas"
+        style="position:absolute; inset:0; width:100%; height:100%; z-index:0; display:block; background:transparent;"></canvas>
+      <div class="about-container" style="position:relative; z-index:1;">
+        <h2 class="about-fadein">About Us</h2>
+        <p class="about-fadein">At Altrexis, we empower businesses through expert consultancy and cutting-edge
+          technology. From custom software and IT services to cloud infrastructure, data analytics, and digital
+          transformation, we deliver tailored solutions that help organizations thrive in a fast-changing digital world.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="top-title">
+        <h2 class="slide-up-fade">Our Services</h2>
+        <a href="mailto:hello@altrexis.com" class="contact-btn slide-up-fade">Contact Us</a>
+      </div>
+    </section>
+
+
+    <div class="sticky-parent" name="services" id="services">
+      <div class="sticky">
+        <div class="horizontal">
+          <div class="dim">
+            <div class="text-side fade-in">
+              <h3>Software & Digital Product <span>Development</span></h3>
+              <p>At Altrexis, we design and build powerful digital solutions that solve real business problems. Whether
+                you're starting with an idea or scaling an existing product, our expert team helps you turn technology
+                into a competitive edge.</p>
+            </div>
+            <div class="animWrapper">
+              <div id="animation1" class="service-anim"></div>
+            </div>
+          </div>
+          <div class="dim">
+            <div class="text-side fade-in">
+              <h3>Data Analysis & <span>Engineering</span></h3>
+              <p>Whether you're managing large volumes of data or just getting started, we build the tools and systems
+                you need to unlock its full value. Our team specializes in designing modern, secure data infrastructure,
+                built to scale, built to last.</p>
+            </div>
+            <div class="animWrapper">
+              <div id="animation2" class="service-anim"></div>
+            </div>
+          </div>
+
+          <div class="dim">
+            <div class="text-side fade-in">
+              <h3>Product & Experience <span>Design</span></h3>
+              <p>We shape ideas into intuitive products and memorable experiences that connect with people and create
+                lasting value. Whether it’s a digital platform, a service, or a customer journey, we design with
+                clarity, purpose, and impact.</p>
+            </div>
+            <div class="animWrapper">
+              <div id="animation3" class="service-anim"></div>
+            </div>
+          </div>
+          <div class="dim">
+            <div class="text-side fade-in">
+              <h3>Branding & Creative <span>Services</span></h3>
+              <p>Your brand is more than just a logo, it's how people feel when they interact with your business. At
+                Altrexis, we help you craft a strong, memorable brand that builds trust, tells your story, and sets you
+                apart in today’s crowded digital world.</p>
+            </div>
+            <div class="animWrapper">
+              <div id="animation4" class="service-anim"></div>
+            </div>
+          </div>
+          <div class="dim">
+            <div class="text-side fade-in">
+              <h3>Digital 2D & 3D <span>Design</span></h3>
+              <p>From interactive 3D models to fully immersive AR/VR environments, we help you capture attention,
+                explain complex ideas, and deliver unforgettable experiences across digital platforms.</p>
+            </div>
+            <div class="animWrapper">
+              <div id="animation5" class="service-anim"></div>
+            </div>
+          </div>
+          <div class="dim">
+            <div class="text-side fade-in">
+              <h3>Information Security & <span> Risk Management</span></h3>
+              <p>In today’s interconnected world, information security is not a luxury, it’s a necessity. At Altrexis,
+                we help you defend your organization’s most valuable assets with comprehensive, tailored solutions that
+                reduce risk, ensure continuity, and maintain compliance.</p>
+            </div>
+            <div class="animWrapper">
+              <div id="animation6" class="service-anim"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll guard to prevent horizontal scrollbars -->
+    <!-- Sticky Fade Section (Demo Imported) --> <!-- <section class="sticky-fade-section">
+      <div class="sticky-fade-left">
+        <div class="sticky-fade-text fade-in">
+           <h3>Software & Digital Product <span>Development</span></h3>
+           <p>At Altrexis, we design and build powerful digital solutions that solve real business problems. Whether you're starting with an idea or scaling an existing product, our expert team helps you turn technology into a competitive edge.</p>
+        </div>
+        <div class="sticky-fade-text fade-in"> 
+          <h3>Data Analysis & <span> Engineering</span></h3>
+          <p>Whether you're managing large volumes of data or just getting started, we build the tools and systems you need to unlock its full value. Our team specializes in designing modern, secure data infrastructure,  built to scale, built to last.</p>
+        </div>
+
+        <div class="sticky-fade-text fade-in"><h3>Product & Experience <span> Design</span></h3>
+          <p> We shape ideas into intuitive products and memorable experiences that connect with people and create lasting value. Whether it’s a digital platform, a service, or a customer journey, we design with clarity, purpose, and impact.
+          From concept to experience, we design products that work beautifully and feel effortless.</p>
+        </div>
+        <div class="sticky-fade-text fade-in"><h3>Branding & Creative <span> Services</span></h3>
+          <p>Your brand is more than just a logo,  it's how people feel when they interact with your business. At Altrexis, we help you craft a strong, memorable brand that builds trust, tells your story, and sets you apart in today’s crowded digital world.</p>
+        </div>
+        <div class="sticky-fade-text fade-in"><h3>Digital & 3D <span> Design</span></h3>
+          <p>From interactive 3D models to fully immersive AR/VR environments, we help you capture attention, explain complex ideas, and deliver unforgettable experiences across digital platforms.
+
+            Whether you're showcasing a product, telling your brand story, or building the future of user interaction, we blend creativity with technology to make it happen.</p>
+        </div>
+        <div class="sticky-fade-text fade-in"><h3>Information Security & Risk <span> Management</span></h3>
+          <p>In today’s interconnected world, information security is not a luxury,  it’s a necessity. At Altrexis, we help you defend your organization’s most valuable assets with comprehensive, tailored solutions that reduce risk, ensure continuity, and maintain compliance.</p>
+        </div>
+      </div>
+      <div class="sticky-fade-right">
+        <div class="sticky-fade-object lottie-object">
+          <dotlottie-player 
+            class="scroll-lottie"
+            src="https://lottie.host/074004f6-83bb-40dc-9d60-dc6f3e125c94/rsGUqYTtC2.lottie"
+            background="transparent" 
+            speed="1" 
+            style="width: 500px; height: 500px"
+            direction="1" 
+            playMode="normal">
+          </dotlottie-player>
+        </div>
+        <div class="sticky-fade-object lottie-object">
+          <dotlottie-player 
+    class="scroll-lottie"
+    src="https://lottie.host/5413effa-f306-4814-afa9-1f62fa15f12a/pbY8Z8QAeO.lottie"
+    background="transparent"
+    speed="1"
+    direction="1" 
+    playMode="normal"
+    style="width: 500px; height: 500px">
+  </dotlottie-player>
+</div>
+    <div class="sticky-fade-object lottie-object">
+      <dotlottie-player 
+        class="scroll-lottie"
+        src="https://lottie.host/b986bb41-8d0c-458c-99ca-fb9e0d8c3669/YbpJJBdzm8.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 500px; height: 500px">
+      </dotlottie-player>
+  </div>
+        <div class="sticky-fade-object lottie-object">
+  <dotlottie-player 
+    class="scroll-lottie"
+    src="https://lottie.host/1f144305-7a97-481d-8d0d-13b4def27670/vVEch0mv2q.lottie"
+    background="transparent"
+    speed="1"
+    style="width: 500px; height: 500px">
+  </dotlottie-player>
+</div>
+        <div class="sticky-fade-object lottie-object">
+  <dotlottie-player 
+    class="scroll-lottie"
+    src="https://lottie.host/af2302ff-18ac-4496-bf44-3029aa4a1a70/p68dz3yKXd.lottie"
+    background="transparent"
+    speed="1"
+    style="width: 500px; height: 500px">
+  </dotlottie-player>
+</div>
+      <!-- <div class="sticky-fade-object" style="display:none">Object 6</div> -->
+    <!-- </div>
+     
+         </section>  -->
+
+    <!-- Vision and mission section -->
+    <div class="vision-mission-outer">
+      <section id="vision-mission" class="vision-mission-section">
+        <h2>
+          <span class="former">ALT</span>
+          <span class="latter">REXIS</span>
+        </h2>
+        <div class="about-sticky">
+          <p class="about-text">
+            To be a trusted leader in delivering transformative, secure, and scalable technology solutions that enable
+            businesses across industries to excel in the digital era.
+          </p>
+          <p class="about-text">
+            To provide expert-led technological solutions that drive innovation, streamline operations, and support
+            sustainable business growth.
+          </p>
+        </div>
+        <script>
+          (function () {
+            // About sticky fade scroll
+            const aboutSticky = document.querySelector('.about-sticky');
+            const aboutTexts = aboutSticky ? aboutSticky.querySelectorAll('.about-text') : [];
+            const latter = document.querySelector('.latter');
+            if (aboutSticky && aboutTexts.length > 1 && latter) {
+              function onAboutScroll() {
+                const rect = aboutSticky.getBoundingClientRect();
+                const winH = window.innerHeight;
+                // Progress 0 (top in view) to 1 (bottom in view)
+                const progress = Math.min(1, Math.max(0, (winH / 2 - rect.top) / (rect.height)));
+                let idx = 0;
+                if (progress > 0.5) idx = 1;
+                aboutTexts.forEach((el, i) => el.classList.toggle('active', i === idx));
+                latter.classList.toggle('latter-active', idx === 1);
+              }
+              window.addEventListener('scroll', onAboutScroll);
+              window.addEventListener('resize', onAboutScroll);
+              onAboutScroll();
+            }
+
+            // Slide-up animation for vision-mission-section
+            const visionSection = document.querySelector('.vision-mission-section');
+            if (visionSection) {
+              function checkInView() {
+                const rect = visionSection.getBoundingClientRect();
+                const winH = window.innerHeight;
+                if (rect.top < winH * 0.85 && rect.bottom > winH * 0.15) {
+                  visionSection.classList.add('in-view');
+                } else {
+                  visionSection.classList.remove('in-view');
+                }
+              }
+              window.addEventListener('scroll', checkInView);
+              window.addEventListener('resize', checkInView);
+              checkInView();
+            }
+          })();
+        </script>
+      </section>
+
+      <!-- why us section - bento -->
+      <section class="why-us-section">
+        <div class="why-us-container">
+          <div class="bentoCol1 bentoColumn">
+            <div class="bentoCol1Content">
+              <div class="bento1ContentImg"><img src="../assets/images/bentoColumn1Img.svg" alt="Altrexis"></div>
+              <div class="bento1ContentText">
+                <h4>Industry-Driven Innovation</h4>
+                <p>We build using insights from fast-moving industries.</p>
+              </div>
+            </div>
+            <div class="bentoCol1Content tallestContent">
+              <div class="bento1ContentText">
+                <h4>Client-Centered Approach</h4>
+                <p>Your vision drives our process, every step of the way.</p>
+              </div>
+              <div class="bento1ContentImg"><img src="../assets/images/bentoColumn2Img.svg" alt="Altrexis">
+              </div>
+            </div>
+            <div class="bentoCol1Content lastContent">
+              <div class="bento1ContentText">
+                <h2 class="lastContentTitle">ALTREXIS</h2>
+              </div>
+            </div>
+          </div>
+          <div class="bentoCol2 bentoColumn">
+            <div class="bentoCol1Content tallestContent" id="noBottomCol">
+              <div class="bento1ContentText">
+                <h4>Expert-Led Consultancy</h4>
+                <p>Led by seasoned specialists who understand your product goals.</p>
+              </div>
+              <div class="bento1ContentImg" id="midCol2Img"><img src="../assets/images/bentoCol2img1.svg"
+                  alt="Altrexis">
+              </div>
+            </div>
+            <div class="bentoCol1Content lastContent" id="midCol2">
+              <div class="bento1ContentText">
+                <h2 class="lastContentTitle">Why choose us</h2>
+              </div>
+            </div>
+            <div class="bentoCol1Content">
+              <div class="bento1ContentText" id="lastCol2">
+                <p id="lastCol2Text">The future of your product & business is in safe hands</p>
+                <a href="mailto:hello@altrexis.com" class="contact-btn slide-up-fade" id="lastCol2Btn">Let’s build that
+                  future now</a>
+              </div>
+            </div>
+          </div>
+          <div class="bentoCol3 bentoColumn">
+            <div class="bentoCol1Content tallestContent" id="noBottomCol">
+              <div class="bento1ContentText">
+                <h4>Scalable & Secure Solutions</h4>
+                <p>Security and scale are baked into every layer we build.</p>
+              </div>
+              <div class="bento1ContentImg" id="lastCol2Img"><img src="../assets/images/bento3rdColImg1.svg"
+                  alt="Altrexis">
+              </div>
+            </div>
+            <div class="bentoCol1Content">
+              <div class="bento1ContentImg" id="lastCol2BtmImg"><img src="../assets/images/bento3rdBtmImg.svg"
+                  alt="Altrexis"></div>
+              <div class="bento1ContentText">
+                <h4>End-to-End Support</h4>
+                <p>From ideation to deployment — and beyond.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Team Section -->
+      <section id="team-carousel-section" class="team-carousel-section" name="team">
+        <div class="team-header">
+          <div class="services-title-wrapper">
+            <h2 class="services-title">Meet the Team</h2>
+          </div>
+        </div>
+        <div class="team-carousel-outer">
+          <div class="team-carousel-track">
+            <div class="team-carousel-card">
+              <img src="assets/images/pelumi.jpg" alt="Jane Doe" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Lumi</h3>
+                <p>Lead Designer</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/Otherguy.jpg" alt="John Smith" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Wilson</h3>
+                <p>InfoSec engineer</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/Ejiro.jpg" alt="Maria Lee" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Esther</h3>
+                <p>Project Manager</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/mide.jpg" alt="Alex Kim" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Mide</h3>
+                <p>Senior Data Engineer & Architect</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/aanu.jpg" alt="Priya Patel" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <p>Aanu</p>
+                <p>3D Animator</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/Josh.jpg" alt="Priya Patel" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Josh</h3>
+                <p>Frontend Lead Engineer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq-section" class="faq-section">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+          <div class="faq-accordion bento-fade-in">
+            <div class="faq-question">
+              <h3>What is Altrexis?</h3>
+              <span class="faq-toggle"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Altrexis is a technology and consulting company that helps businesses grow through innovative software,
+                data, and digital solutions.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion bento-fade-in">
+            <div class="faq-question">
+              <h3>What does Altrexis offer?</h3>
+              <span class="faq-toggle"></span>
+            </div>
+            <div class="faq-answer">
+              <p>We build custom software, digital products, and brands. Our services include cloud infrastructure, data
+                analytics, product design, branding, and information security.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion bento-fade-in">
+            <div class="faq-question">
+              <h3>Which industries does Altrexis work with?</h3>
+              <span class="faq-toggle"></span>
+            </div>
+            <div class="faq-answer">
+              <p>We work with clients across various industries including technology, healthcare, finance,
+                manufacturing, real-estate, e-commerce, and more. Our team has the expertise to adapt our services to
+                meet the unique needs of different sectors.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion bento-fade-in">
+            <div class="faq-question">
+              <h3>What kinds of businesses does Altrexis support?</h3>
+              <span class="faq-toggle"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Altrexis works with businesses of all sizes, especially small and medium enterprises (SMEs), helping
+                them scale with smart, secure, and future-ready technology.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion bento-fade-in">
+            <div class="faq-question">
+              <h3>How do you ensure the security of our data?</h3>
+              <span class="faq-toggle"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Data security is our top priority. We implement industry-standard security measures including
+                encryption, secure access controls, and regular security audits. Our team follows strict data protection
+                protocols to ensure your information remains confidential and secure.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion bento-fade-in">
+            <div class="faq-question">
+              <h3>What is your pricing model?</h3>
+              <span class="faq-toggle"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Our pricing is tailored to each project's specific requirements. We offer flexible engagement models
+                including fixed-price projects, time and materials, and dedicated team options. Contact us to discuss
+                your project and receive a customized quote.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion bento-fade-in">
+            <div class="faq-question">
+              <h3>Do you provide ongoing support after project completion?</h3>
+              <span class="faq-toggle"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, we offer comprehensive post-launch support and maintenance services to ensure your solution
+                continues to perform optimally. Our support packages include regular updates, bug fixes, and technical
+                assistance as needed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="parallax-footer" class="fullscreen-footer parallax-footer ">
+      <div class="top-footer">
+        <div class="lets-talk fade-in">
+          <h2>Let's talk</h2>
+          <a href="mailto:hello@altrexis.com" class="contact-btn slide-up-fade" id="footer-cta">hello@altrexis.com</a>
+        </div>
+      </div>
+      <div class="footer-brand-giant fade-in">
+        <h2>ALTREXIS</h2>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="js/normal-lottie.js"></script>
+    <script src="js/lottie-init.js"></script>
+    <script src="js/custom-cursor.js"></script>
+    <script src="js/about-fadein.js"></script>
+    <script src="js/about-grid-canvas.js"></script>
+    <script src="js/hero-isometric-stack.js"></script>
+    <script src="js/scroll-lottie-observer.js"></script>
+    <script src="js/team-carousel.js"></script>
+    <script src="js/team-carousel-anim.js"></script>
+    <script src="js/footer-parallax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/gsap-animations.js"></script>
+    <script src="js/scroll-horizontal.js"></script>
+    <script src="js/services-sticky-scroll.js"></script>
+    <script>
+      // Mobile menu toggle
+      document.getElementById('hamburger-btn').addEventListener('click', function () {
+        document.getElementById('overlay-menu').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      document.getElementById('close-overlay').addEventListener('click', function () {
+        document.getElementById('overlay-menu').classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    </script>
+</body>
+
+</html>

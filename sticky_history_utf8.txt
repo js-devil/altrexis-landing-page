@@ -1,0 +1,268 @@
+﻿commit 0e23d064c85fe2b96b6e5bbcb3d525f94c8dcfab
+Author: pelumi <coltcopy@gmail.com>
+Date:   Mon Aug 25 23:09:23 2025 +0100
+
+    Service Section redo
+
+diff --git a/css/style.css b/css/style.css
+index b3fbdd1..422ea94 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -495,6 +495,8 @@ box-shadow: 0 0 18px 4px #fff3;
+ 
+ 
+ 
++
++
+ /* Hide custom cursor on mobile devices (below 320px and up to 768px) */
+ @media (max-width: 768px) {
+   .custom-cursor,
+@@ -597,40 +599,17 @@ box-shadow: 0 0 18px 4px #fff3;
+ 
+ 
+ .sticky-fade-object {
+-  position: absolute !important;
+-  top: 0; left: 0; right: 0; bottom: 0;
++  position: relative;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+-  opacity: 0;
+   pointer-events: none;
+-  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+-  z-index: 1;
+ }
+ 
+-.sticky-fade-object.circle-object {
+-  width: 120px;
+-  height: 120px;
+-  border-radius: 50%;
+-  background: #5cf;
+-  box-shadow: 0 0 32px 0 #5cf8;
+-  display: flex;
+-  align-items: center;
+-  justify-content: center;
+-  font-size: 2rem;
+-  color: #fff;
+-  margin: auto;
+-}
+-.sticky-fade-object.active {
+-  opacity: 1;
+-  pointer-events: auto;
+-  z-index: 1;
+-  transform: scale(1) translateY(0);
+-}
+ /* Abstract object styles */
+-.sticky-fade-object.obj-1 {
++/* .sticky-fade-object.obj-1 {
+   background: radial-gradient(circle at 30% 30%, #a994ff 0%, #3b82f6 100%);
+   border-radius: 50%;
+   width: 220px;
+@@ -643,7 +622,7 @@ box-shadow: 0 0 18px 4px #fff3;
+   width: 210px;
+   height: 210px;
+   box-shadow: 0 8px 40px #ffb34733;
+-  animation: morph 8s infinite alternate cubic-bezier(0.4,0,0.2,1);
++  animation: morph 8s forwards alternate cubic-bezier(0.4,0,0.2,1);
+ }
+ .sticky-fade-object.obj-3 {
+   background: repeating-linear-gradient(45deg, #fff 0 10px, #8b5cf6 10px 20px);
+@@ -673,7 +652,8 @@ box-shadow: 0 0 18px 4px #fff3;
+   width: 170px;
+   height: 170px;
+   box-shadow: 0 8px 40px #fff3;
+-}
++} */
++
+ @keyframes morph {
+   0% { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; }
+   100% { border-radius: 60% 40% 40% 60% / 40% 60% 50% 60%; }
+@@ -1384,6 +1364,26 @@ padding-bottom: 0;
+ 
+ @media (max-width: 359px) {
+   /* styles for ultra-small screens */
++
++  .text-side h3 {
++    font-size: 1.5rem!important;
++    line-height: 120%;
++    letter-spacing: -1px!important;
++  }
++
++  .text-side p{
++    font-size: 0.8rem;
++  }
++  .dim{
++    width: 100vw!important;
++    padding: 12% !important;
++  }
++
++  .horizontal{
++    display: flex;
++    align-items: center;
++  }
++
+   .nav-actions a{
+     display: none;
+   }
+@@ -1546,6 +1546,15 @@ padding-bottom: 0;
+ 
+ @media (min-width: 360px) and (max-width: 479px) {
+   /* styles for small phones */
++  .text-side h3 {
++    font-size: 1.5rem!important;
++    line-height: 120%;
++    letter-spacing: 0px;
++  }
++
++  .text-side p{
++    font-size: 0.8rem;
++  }
+    .nav-actions a{
+     display: none;
+   }
+@@ -1704,11 +1713,23 @@ padding-bottom: 0;
+     margin-bottom: 0;
+   }
+ 
++
++
+ }
+ 
+ /* Small: 480pxΓÇô767px */
+ @media (min-width: 480px) and (max-width: 640px) {
+   /* styles for larger phones */
++  .text-side h3 {
++    font-size: 1.8rem!important;
++    line-height: 120%;
++    letter-spacing: 0px;
++  }
++
++  .text-side p{
++    font-size: 1.2rem;
++  }
++
+   .nav-actions a{
+     display: none;
+   }
+@@ -1873,6 +1894,20 @@ padding-bottom: 0;
+ /* medium: 641pxΓÇô768px */
+ @media (min-width: 641px) and (max-width: 768px) {
+   /* styles for larger phones */
++
++  .text-side h3 {
++    font-size: 1.8rem!important;
++    line-height: 120%;
++    letter-spacing: 0px;
++  }
++
++  .text-side p{
++    font-size: 0.9rem;
++  }
++  .dim{
++    width: 100vw!important;
++    padding: 12% 6%!important;
++  }
+   .nav-actions a{
+     display: none;
+   }
+@@ -2040,6 +2075,20 @@ padding-bottom: 0;
+ /* medium: 769pxΓÇô1032px */
+ @media (min-width: 769px) and (max-width: 1032px) {
+   /* styles for larger phones */
++  .text-side h3 {
++    font-size: 1.8rem!important;
++    line-height: 120%;
++    letter-spacing: 0px;
++  }
++
++  .text-side p{
++    font-size: 0.9rem;
++  }
++  .dim{
++    width: 100vw!important;
++    padding: 12% 6%!important;
++  }
++
+   .nav-actions a{
+     display: none;
+   }
+@@ -2208,4 +2257,76 @@ padding-bottom: 0;
+   #lastCol2Img{
+     margin-bottom: 0;
+   }
++}
++
++
++
++.sticky-parent{
++  height: 700vh;
++  margin-top: 4%;
++}
++.sticky{
++  position: sticky;
++  top: 0px;
++  max-height: 100vh;
++  overflow-x: hidden;
++  overflow-y: hidden;
++}
++.dim{
++  display: flex;
++  flex-direction: column;
++  justify-content: flex-start;
++  align-items: flex-start;
++  padding: 8% 12% 8% 12%;
++  /* background: var(--gb-grad); */
++  min-width: 50vw;
++  height: 100vh;
++  position: relative;
++  margin-bottom: 6%;
++}
++
++.lottie-object {
++  width: 100%;
++  height: 100%;
++  display: flex;
++  justify-content: center;
++  align-items: center;
++  position: relative;
++  z-index: 1;
++}
++
++.text-side h3{
++  width:  100%;
++  font-family: 'Manrope', Arial, sans-serif;
++  font-size: 2.3rem;
++  line-height: 144%;
++  color: var(--gray-bg);
++  letter-spacing: -2px;
++  margin-bottom: 4%;
++}
++.text-side span{
++  color: var(--primary-color);
++}
++.horizontal{
++  display: flex;
++}
++.br{
++  outline: solid;
++}
++
++@media (max-width: 620px) {
++  .dim{
++    display: flex;
++    width: 100%;
++    min-width: 100vw;
++    height: 100vh;
++  }
++}
++
++.service-anim{
++  width: 100%;
++}
++
++.animWrapper{
++  margin-top: 6%;
+ }
+\ No newline at end of file
